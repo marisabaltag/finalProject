@@ -1,0 +1,64 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar {
+  position: sticky;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+}
+.navbar a {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+}
+#logo {
+  order: -1;
+  margin-right: auto;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 18px;
+}
+#products {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  justify-items: center;
+  margin-bottom: 100px;
+}
+#welcomeDiv {
+  position: relative;
+}
+/* top: -100px;
+} */
+
+#homeImg {
+  position: relative;
+  width: 100%;
+}
+#welcomeDiv p {
+  position: relative;
+  color: white;
+  top: 250px;
+  left: 40%;
+  z-index: 1;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 700;
+}
+#welcomeDiv button {
+  position: relative;
+  height: 30px;
+  width: 100px;
+  top: 250px;
+  left: 45%;
+  color: grey;
+  z-index: 1;
+}
