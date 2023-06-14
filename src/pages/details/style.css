@@ -20,7 +20,7 @@ body {
   font-size: 18px;
   text-decoration: none;
   color: black;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 #logo {
   order: -1;
@@ -28,17 +28,4 @@ body {
   font-style: italic;
   font-weight: 800;
   font-size: 18px;
-}
-#products {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
-  justify-items: center;
-  margin-bottom: 100px;
-}
-
-#homeImg {
-  width: 100%;
-  margin-top: 50px;
 }
