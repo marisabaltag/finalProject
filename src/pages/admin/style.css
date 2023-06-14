@@ -29,3 +29,41 @@ body {
   font-weight: 800;
   font-size: 18px;
 }
+#productPage {
+  width: 80%;
+  margin: auto;
+}
+#admintitle {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+table {
+  margin-top: 50px;
+  margin: auto;
+}
+table {
+  border: 3px solid black;
+}
+#img {
+  padding: 0 50px;
+}
+td img {
+  display: block;
+  margin: auto;
+}
+#name {
+  width: 400px;
+}
+#price {
+  width: 200px;
+}
+#qt {
+  width: 200px;
+}
+#remove {
+  padding: 0 50px;
+}
+td {
+  text-align: center;
+}
