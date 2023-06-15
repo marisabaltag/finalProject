@@ -2,6 +2,7 @@ import "./style.css";
 import { getProducts } from "../../api/getProducts";
 import { createProductRow } from "../../compoments/productRow";
 import { deleteProduct } from "../../api/deleteProduct";
+import { addNewProductToAPI } from "../../api/addNewProduct";
 
 window.addEventListener("DOMContentLoaded", async () => {
   const products = await getProducts();
@@ -34,4 +35,6 @@ const hideContent = () => {
   addNewProdcutForm.style.display = "none";
 };
 cancelBtn.addEventListener("click", hideContent);
-const saveBtn = document.querySelector("#saveProdBtn");
+
+const saveBtn = document.getElementById("saveProdBtn");
+saveBtn.addEventListener("click", addNewProductToAPI);
