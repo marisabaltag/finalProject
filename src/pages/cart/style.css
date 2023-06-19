@@ -29,3 +29,12 @@ body {
   font-weight: 800;
   font-size: 18px;
 }
+#cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+#cart-table {
+  text-align: center;
+}

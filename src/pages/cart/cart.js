@@ -7,21 +7,61 @@ import {
   isProductAlreadyInCart,
 } from "../../utils/cart";
 const showProducts = async () => {
+  // const cart = localStorage.getItem("cart");
+  // const products = JSON.parse(cart);
+  // document.getElementById("cart").innerHTML = "";
+  // products.forEach((product) => {
+  //   getProductById(product.id).then(
+  //     (productInfo) =>
+  //       (document.getElementById("cart").innerHTML += `<div id="p${product.id}">
+  //           <span>${productInfo.product}</span>
+  //           <span>${productInfo.price}</span>
+  //           <img src=${productInfo.image} width="30px" />
+  //           <button id=${product.id} class="decrement-quantity">-</button>
+  //           <span class="quantity">${product.quantity}</span>
+  //           <button id=${product.id} class="increment-quantity">+</button>
+  //           <span id="subtotal-${product.id}" class="subtotal">${
+  //         productInfo.price * product.quantity
+  //       }</span>
+  //     </div>`)
+  //   );
+  // });
   const cart = localStorage.getItem("cart");
   const products = JSON.parse(cart);
-  document.getElementById("cart").innerHTML = "";
+  const table = document.createElement("table");
+  table.id = "cart-table";
+  table.innerHTML = `
+    <tr>
+      <th style="width: 300px">Product</th>
+      <th style="width: 100px">Image</th>
+      <th style="width: 200px">Price</th>
+      <th style="width: 200px">Quantity</th>
+      <th style="width: 200px">Subtotal</th>
+    </tr>
+  `;
+
   products.forEach((product) => {
-    getProductById(product.id).then(
-      (productInfo) =>
-        (document.getElementById("cart").innerHTML += `<div id="p${product.id}">
-            <span>${productInfo.product}</span>
-            <span>${productInfo.price}</span>
-            <img src=${productInfo.image} width="30px" />
-            <button id=${product.id} class="decrement-quantity">-</button>
-            <span class="quantity">${product.quantity}</span>
-            <button id=${product.id} class="increment-quantity">+</button>
-      </div>`)
-    );
+    getProductById(product.id).then((productInfo) => {
+      const row = document.createElement("tr");
+      row.id = "p" + product.id;
+      row.innerHTML = `
+        <td>${productInfo.product}</td>
+        <td><img src="${productInfo.image}" width="50px" /></td>
+        <td>${productInfo.price} RON</td>
+        <td>
+          <button id="${product.id}" class="decrement-quantity">-</button>
+          <span class="quantity">${product.quantity}</span>
+          <button id="${product.id}" class="increment-quantity">+</button>
+        </td>
+        <td id="subtotal-${product.id}" class="subtotal">${
+        productInfo.price * product.quantity
+      } RON</td>
+      `;
+
+      table.appendChild(row);
+      document.getElementById("cart").innerHTML = "";
+      document.getElementById("cart").appendChild(table);
+    });
   });
 };
 window.addEventListener("load", showProducts);
