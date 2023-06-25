@@ -7,25 +7,6 @@ import {
   isProductAlreadyInCart,
 } from "../../utils/cart";
 const showProducts = async () => {
-  // const cart = localStorage.getItem("cart");
-  // const products = JSON.parse(cart);
-  // document.getElementById("cart").innerHTML = "";
-  // products.forEach((product) => {
-  //   getProductById(product.id).then(
-  //     (productInfo) =>
-  //       (document.getElementById("cart").innerHTML += `<div id="p${product.id}">
-  //           <span>${productInfo.product}</span>
-  //           <span>${productInfo.price}</span>
-  //           <img src=${productInfo.image} width="30px" />
-  //           <button id=${product.id} class="decrement-quantity">-</button>
-  //           <span class="quantity">${product.quantity}</span>
-  //           <button id=${product.id} class="increment-quantity">+</button>
-  //           <span id="subtotal-${product.id}" class="subtotal">${
-  //         productInfo.price * product.quantity
-  //       }</span>
-  //     </div>`)
-  //   );
-  // });
   const cart = localStorage.getItem("cart");
   const products = JSON.parse(cart);
   const table = document.createElement("table");
@@ -39,7 +20,7 @@ const showProducts = async () => {
       <th style="width: 200px">Subtotal</th>
     </tr>
   `;
-
+  let total = 0;
   products.forEach((product) => {
     getProductById(product.id).then((productInfo) => {
       const row = document.createElement("tr");
@@ -53,14 +34,17 @@ const showProducts = async () => {
           <span class="quantity">${product.quantity}</span>
           <button id="${product.id}" class="increment-quantity">+</button>
         </td>
-        <td id="subtotal-${product.id}" class="subtotal">${
+        <td> <span id="subtotal-${product.id}" class="subtotal">${
         productInfo.price * product.quantity
-      } RON</td>
+      } RON </span></td>
       `;
 
       table.appendChild(row);
+      total += productInfo.price * product.quantity;
       document.getElementById("cart").innerHTML = "";
       document.getElementById("cart").appendChild(table);
+      const totalElement = document.getElementById("totalPrice");
+      totalElement.innerHTML = `Total: ${total} RON`;
     });
   });
 };

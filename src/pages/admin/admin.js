@@ -26,7 +26,7 @@ async function onClickDeleteProduct(e) {
 const addNewProdcutBtn = document.querySelector("#addNewProduct");
 const addNewProdcutForm = document.querySelector("#addNewProd");
 const showContent = () => {
-  addNewProdcutForm.style.display = "block";
+  addNewProdcutForm.style.display = "flex";
 };
 addNewProdcutBtn.addEventListener("click", showContent);
 // addNewProdcutBtn.add;
