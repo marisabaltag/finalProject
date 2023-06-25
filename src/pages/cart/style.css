@@ -45,3 +45,21 @@ body {
   align-items: center;
   margin-top: 100px;
 }
+#confirmOrder {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+#confirmOrder button {
+  width: 100ppx;
+  height: 40px;
+  background-color: #fea1a1;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
