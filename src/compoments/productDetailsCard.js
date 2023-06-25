@@ -12,7 +12,6 @@ export const createProductDetailsCard = (product) => `
       <p> Despre produs: ${product.description}</p>
       <p> Note olfactive: ${product.oflactoryNotes}</p>
       <p> Pret: ${product.price} RON </p>
-       <a href="/src/pages/details/details.html?id=${product.id}">Details</a>
       <button class="add-to-cart-btn">Adauga in cos</button>
       
    </div>

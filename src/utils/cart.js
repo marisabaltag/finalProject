@@ -1,3 +1,4 @@
+import { getProductById } from "../api/getProductsById";
 export const addProductToCart = (id) => {
   const cart = localStorage.getItem("cart");
   let cartArray = [];
@@ -45,4 +46,18 @@ export function getProductQuantityFromLocalStorage(id, cartArray) {
   const product = cartArray.find((product) => product.id === id);
 
   return product.quantity;
+}
+
+export function calculateSubtotal(productId, cartArray) {
+  const product = cartArray.find((product) => product.id === productId);
+
+  if (product) {
+    const productInfo = getProductById(productId);
+    return productInfo.then((productInfo) => {
+      const subtotal = productInfo.price * product.quantity;
+      return subtotal;
+    });
+  }
+
+  return 0;
 }

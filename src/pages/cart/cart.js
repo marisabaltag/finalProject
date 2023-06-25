@@ -5,9 +5,12 @@ import {
   incrementProductQuantity,
   getProductQuantityFromLocalStorage,
   isProductAlreadyInCart,
+  calculateSubtotal,
 } from "../../utils/cart";
+
 const showProducts = async () => {
   const cart = localStorage.getItem("cart");
+
   const products = JSON.parse(cart);
   const table = document.createElement("table");
   table.id = "cart-table";
@@ -74,4 +77,7 @@ document.getElementById("cart").addEventListener("click", async (e) => {
       .querySelector(".quantity").innerHTML =
       getProductQuantityFromLocalStorage(productId, cartArray);
   }
+  const subtotalElement = document.getElementById("subtotal-" + productId);
+  const newSubtotal = await calculateSubtotal(productId, cartArray);
+  subtotalElement.innerHTML = `${newSubtotal} RON`;
 });
