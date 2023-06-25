@@ -80,4 +80,13 @@ document.getElementById("cart").addEventListener("click", async (e) => {
   const subtotalElement = document.getElementById("subtotal-" + productId);
   const newSubtotal = await calculateSubtotal(productId, cartArray);
   subtotalElement.innerHTML = `${newSubtotal} RON`;
+  let total = 0;
+  cartArray.forEach((product) => {
+    const productInfo = getProductById(product.id);
+    productInfo.then((productInfo) => {
+      total += productInfo.price * product.quantity;
+      const totalElement = document.getElementById("totalPrice");
+      totalElement.innerHTML = `Total: ${total} RON`;
+    });
+  });
 });
